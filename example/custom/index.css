@@ -1,0 +1,249 @@
+#custom-slidePage {
+  height: 100%;
+}
+ul {
+  list-style: none;
+}
+.container {
+  display: block;
+}
+
+/* 自定义动画 */
+@keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  animation: flash .5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn .5s;
+}
+
+
+.slide-page ul {
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.slide-page ul li {
+  width: 100%;
+  padding: 100px 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgb(83, 83, 83);
+  background: rgba(255, 255, 255, .5);
+  text-align: center;
+}
+
+.slide-page h2 {
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+}
+.prev-page,
+.next-page {
+  display: block;
+  width: 25px;
+  height: 25px;
+  line-height: 26px;
+  position: absolute;
+  right: 2px;
+  z-index: 9999;
+  background: rgba(255, 255, 255, .5);
+  border-radius: 50%;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+.prev-page {
+  top: 0;
+}
+
+.next-page {
+  bottom: 0;
+}
+
+.prev-page:active {
+  background: rgba(155, 155, 155, .5);
+}
+
+.next-page:active {
+  background: rgba(155, 155, 155, .5);
+}
+
+.pagination {
+  width: 30px;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  right: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 0;
+  z-index: 1;
+  transform: translate(0, -50%);
+}
+
+.pagination a {
+  width: 25px;
+  height: 25px;
+  display: block;
+  line-height: 28px;
+  text-align: center;
+  padding-left: 3px;
+  cursor: pointer;
+}
+
+.pagination a:after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  background: rgba(0, 0, 0, .5);
+  -webkit-transition: background .3s ease;
+  -moz-transition: background .3s ease;
+  -ms-transition: background .3s ease;
+  -o-transition: background .3s ease;
+  transition: background .3s ease;
+}
+
+.slide-page p.middle {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  text-align: center;
+  width: 100%;
+  margin-top: -20px;
+}
+
+.slide-page p.tips {
+  font-size: 14px;
+  color: rgba(68, 68, 68, 0.089);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.pagination a.active:after {
+  background: rgba(255, 255, 255, .5);
+}
+
+.add,.remove{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -50px;
+  padding: 38px 0;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: rgb(47, 95, 178);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.add:hover {
+  background-color: rgb(57, 123, 219);
+}
+
+.add:active {
+  background-color: rgb(31, 79, 134);
+}
+
+.remove {
+  background-color: rgb(151, 43, 43);
+}
+
+.remove:hover {
+  background-color: rgb(194, 63, 63);
+}
+
+.remove:active {
+  background-color: rgb(116, 33, 33);
+}
+.page1 {
+  background-color: #99CC33;
+}
+.page1 .step1 {
+  position: absolute;
+  top: 100px;
+  left: 19%;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(178, 116, 57);
+  border-radius: 50%;
+}
+
+.page1 .step2 {
+  position: absolute;
+  bottom: 100px;
+  right: 19%;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(116, 178, 9);
+}
+.page2 {
+  background-color: rgb(197, 181, 88);
+}
+
+.page3 {
+  background-color: #99CCCC;
+}
+.page1 .step1 {
+  position: absolute;
+  top: 100px;
+  left: 19%;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(178, 116, 57);
+  border-radius: 50%;
+}
+
+.page1 .step2 {
+  position: absolute;
+  bottom: 100px;
+  right: 19%;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(116, 178, 9);
+}
+
+.page4 {
+  background-color: rgb(204, 125, 51);
+}

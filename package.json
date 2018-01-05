@@ -1,0 +1,53 @@
+{
+  "name": "react-slidepage",
+  "version": "0.1.0",
+  "description": "react-slidePage is a fullscreen scrolling component based on [slidePage](https://github.com/lipten/slidePage)",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-slidepage",
+    "slidePage",
+    "slide",
+    "fullscreen scrolling"
+  ],
+  "homepage": "https://github.com/lipten/react-slidePage",
+  "author": "lipten < lipten@foxmail.com >",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lipten/react-slidePage.git"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib && cp ./src/index.css ./lib/ && webpack --colors --progress -p",
+    "dev": "webpack --watch",
+    "lint": "eslint src example/src"
+  },
+  "peerDependencies": {
+    "prop-types": ">=15.5.0",
+    "react": ">=0.14.0",
+    "react-dom": ">=0.14.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-core": "^6.3.26",
+    "babel-eslint": "^5.0.0",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-react": "^6.3.13",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.28.7",
+    "eslint": "<2.3.0",
+    "eslint-config-airbnb": "^2.1.1",
+    "eslint-plugin-react": "^3.13.1",
+    "react": ">=0.14.0",
+    "react-dom": ">=0.14.0",
+    "style-loader": "^0.19.1",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "dependencies": {
+    "slidePage": "slidePage^3.1.4"
+  }
+}
