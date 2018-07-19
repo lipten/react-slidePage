@@ -48,6 +48,6 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "slidePage": "slidePage^3.1.4"
+    "slidePage": "^3.1.4"
   }
 }
