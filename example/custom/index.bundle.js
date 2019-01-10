@@ -64,7 +64,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _lib = __webpack_require__(44);
+	var _lib = __webpack_require__(33);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19070,8 +19070,189 @@
 
 
 /***/ }),
-/* 33 */,
-/* 34 */,
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.SlidePage = exports.SlideContainer = undefined;
+
+	var _SlideContainer = __webpack_require__(34);
+
+	var _SlideContainer2 = _interopRequireDefault(_SlideContainer);
+
+	var _SlidePage = __webpack_require__(41);
+
+	var _SlidePage2 = _interopRequireDefault(_SlidePage);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	exports.SlideContainer = _SlideContainer2.default;
+	exports.SlidePage = _SlidePage2.default;
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+	    }
+	  }return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	  };
+	}();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _propTypes = __webpack_require__(35);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	var _classnames = __webpack_require__(32);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _index = __webpack_require__(38);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	}
+
+	function _possibleConstructorReturn(self, call) {
+	  if (!self) {
+	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var slidePage = __webpack_require__(40);
+
+	var SlideContainer = function (_Component) {
+	  _inherits(SlideContainer, _Component);
+
+	  function SlideContainer(props) {
+	    _classCallCheck(this, SlideContainer);
+
+	    var _this = _possibleConstructorReturn(this, (SlideContainer.__proto__ || Object.getPrototypeOf(SlideContainer)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(SlideContainer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      this.slidePage = new slidePage({
+	        slideContainer: this.refs.slideContainer,
+	        slidePages: this.refs.slideContainer.children,
+	        page: this.props.page,
+	        refresh: this.props.refresh,
+	        useWheel: this.props.useWheel,
+	        useSwipe: this.props.useSwipe,
+	        useAnimation: this.props.useAnimation,
+	        before: function before(origin, direction, target) {
+	          _this2.props.before(origin, direction, target);
+	        },
+	        after: function after(origin, direction, target) {
+	          _this2.props.after(origin, direction, target);
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'update',
+	    value: function update() {
+	      this.slidePage.update(this.refs.slideContainer.children);
+	    }
+	  }, {
+	    key: 'destroy',
+	    value: function destroy() {
+	      this.slidePage.destroy();
+	    }
+	  }, {
+	    key: 'slideFire',
+	    value: function slideFire(page) {
+	      this.slidePage.slideFire(page);
+	    }
+	  }, {
+	    key: 'slideTo',
+	    value: function slideTo(page) {
+	      this.slidePage.slideTo(page);
+	    }
+	  }, {
+	    key: 'slideNext',
+	    value: function slideNext() {
+	      this.slidePage.slideNext();
+	    }
+	  }, {
+	    key: 'slidePrev',
+	    value: function slidePrev() {
+	      this.slidePage.slidePrev();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('div', { className: (0, _classnames2.default)(_index2.default['slide-container']), ref: 'slideContainer' }, this.props.children);
+	    }
+	  }]);
+
+	  return SlideContainer;
+	}(_react.Component);
+
+	SlideContainer.propTypes = {
+	  refresh: _propTypes2.default.bool,
+	  useWheel: _propTypes2.default.bool,
+	  useSwipe: _propTypes2.default.bool,
+	  useAnimation: _propTypes2.default.bool,
+	  before: _propTypes2.default.func,
+	  after: _propTypes2.default.func,
+	  page: _propTypes2.default.number
+	};
+
+	SlideContainer.defaultProps = {
+	  refresh: true,
+	  useWheel: true,
+	  useSwipe: true,
+	  useAnimation: true,
+	  page: 1,
+	  before: function before() {},
+	  after: function after() {}
+	};
+
+	exports.default = SlideContainer;
+
+/***/ }),
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19720,44 +19901,61 @@
 
 
 /***/ }),
-/* 38 */,
-/* 39 */,
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(39);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// Prepare cssTransformation
+	var transform;
+
+	var options = {"hmr":true}
+	options.transform = transform
+	// add the styles to the DOM
+	var update = __webpack_require__(30)(content, options);
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js?modules&localIdentName=[name]__[local]___[hash:base64:5]!./index.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js?modules&localIdentName=[name]__[local]___[hash:base64:5]!./index.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(29)(undefined);
+	// imports
+
+
+	// module
+	exports.push([module.id, ".index__slide-container___bVYv1 {\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  position: relative;\n}\n\n.index__slide-page___18GSh {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: hidden;\n  -webkit-overflow-scrolling: touch;\n  -webkit-tap-highlight-color:rgba(255,255,255,0);\n  -webkit-text-size-adjust: none;\n  -webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;\n  background-position: center;\n  transform: translate3d(0,100%,0);\n  -webkit-transform: translate3d(0,100%,0);\n}\n\n.transition {\n  transition: all 500ms cubic-bezier(0.550, 0.085, 0.000, 0.990);\n  -webkit-transition: all 500ms cubic-bezier(0.550, 0.085, 0.000, 0.990);\n}", ""]);
+
+	// exports
+	exports.locals = {
+		"slide-container": "index__slide-container___bVYv1",
+		"slide-page": "index__slide-page___18GSh"
+	};
+
+/***/ }),
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(t,e){"use strict"; true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function(){return e(t,t.document)}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof exports?module.exports=e(t,t.document):t.slidePage=e(t,t.document)}("undefined"!=typeof window?window:this,function(t,e){"use strict";var i=!1;try{var n=Object.defineProperty({},"passive",{get:function(){i=!0}});t.addEventListener("test",null,n)}catch(t){}var s=function(e){var i=new RegExp("(^|&)"+e+"=([^&]*)(&|$)"),n=t.location.search.substr(1).match(i);return null!=n?unescape(n[2]):null},o=function(t,e){for(var i in e)t[i]=e[i];return t},r=function(t,e){var i=t.nodeName===e.nodeName,n=t.nodeType===e.nodeType,s=t.innerHTML===e.innerHTML;return t.className.replace(/ transition/g,"")===e.className.replace(/ transition/g,"")&&i&&n&&s},a=function(t){if(t instanceof NodeList||t instanceof HTMLCollection&&t.length>0){for(var e=0,i=0,n=t.length;i<n;i++)t[i]instanceof Element&&e++;return e===n}return t instanceof Element},h={},l={wheelFunc:function(e){(e=e||t.event).wheelDeltaY<0||e.wheelDelta<0||e.detail>0?this.canSlide&&this.canNext&&this.slideNext():(e.wheelDeltaY>0||e.wheelDelta>0||e.detail<0)&&this.canSlide&&this.canPrev&&this.slidePrev()},touchStart:function(t){h.startpoint=t.targetTouches[0].clientY},touchMove:function(t){var e=t.targetTouches[0].clientY-h.startpoint;!this.canPrev&&e>5&&(this.isScroll=!0),!this.canNext&&e<-5&&(this.isScroll=!0),!this.isScroll&&t.preventDefault(),h.endpoint=t.targetTouches[0].clientY},touchEnd:function(t){if(0===h.endpoint)return!1;h.endpoint-h.startpoint<-60?this.canSlide&&this.canNext&&this.slideNext():h.endpoint-h.startpoint>60&&this.canSlide&&this.canPrev&&this.slidePrev(),h.startpoint=0,h.endpoint=0},transitionEnd:function(t){t.target.isEqualNode(this.items[this.page-1])&&("next"==this.direction?(this.opt.after(this.page-1,this.direction,this.page),this.opt.refresh&&c.resetAnimation.call(this,this.page-2)):"prev"==this.direction&&(this.opt.after(this.page+1,this.direction,this.page),this.opt.refresh&&c.resetAnimation.call(this,this.page)),this.canSlide=!0)}},c={slideScroll:function(e){var i=this.items[e].children[0].offsetHeight,n=t.innerHeight,s=function(e){var n=t.innerHeight,s=i<=this.items[e].scrollTop+n,o=0==this.items[e].scrollTop;this.canPrev=o&&!s,this.canNext=s&&!o,this.isScroll=!(s||o)}.bind(this);i-n>20?(this.items[e].children[0].children[0].focus(),s(e),"next"==this.direction?this.items[e].scrollTop=0:"prev"==this.direction&&(this.items[e].scrollTop=i-n),this.items[e].addEventListener("scroll",function(t){s(e)})):(this.canPrev=!0,this.canNext=!0,this.isScroll=!1)},resetAnimation:function(t){if(this.opt.useAnimation&&this.opt.refresh){if(!this.items[t])return!1;var e=this.items[t].querySelectorAll(".step"),i=this.items[t].querySelectorAll(".lazy");e.length>0&&e.forEach(function(t){t.style.display="none"}),i.length>0&&i.forEach(function(t){t.style.display="none"})}},runAnimation:function(t,e){if(this.opt.useAnimation){this.items[t].querySelectorAll(e||".step").forEach(function(t){var e=t.getAttribute("data-delay")||100,i=setTimeout(function(){t.style.display="",clearTimeout(i)},e)})}},initAnimation:function(t,e){if(this.opt.useAnimation){var i=this.container.querySelectorAll(".step"),n=this.container.querySelectorAll(".lazy");i.length>0&&i.forEach(function(t){t.style.display="none"}),n.length>0&&n.forEach(function(t){t.style.display="none"}),c.runAnimation.call(this,e)}for(var s,o=0;s=this.items[o];o++)o===e?s.style.transform="translate3d(0, 0, 0)":o<e?s.style.transform="translate3d(0, -100%, 0)":o>e&&(s.style.transform="translate3d(0, 100%, 0)"),function(t){var e=setTimeout(function(){t.classList.add("transition"),clearTimeout(e)})}(s)},initEvent:function(){this.opt.useWheel&&(e.addEventListener("DOMMouseScroll",this.eventHandler.wheelFunc,!!i&&{passive:!0}),e.addEventListener("mousewheel",this.eventHandler.wheelFunc,!!i&&{passive:!0})),this.opt.useSwipe&&(h={startpoint:0,endpoint:0},this.container.addEventListener("touchstart",this.eventHandler.touchStart,!!i&&{passive:!0}),this.container.addEventListener("touchmove",this.eventHandler.touchMove),this.container.addEventListener("touchend",this.eventHandler.touchEnd,!!i&&{passive:!0})),this.container.addEventListener("transitionend",this.eventHandler.transitionEnd)}},d=function(t){var i={page:1*s("page")||1,slidePages:".slide-page",slideContainer:".slide-container",after:null,before:null,refresh:!1,useWheel:!0,useSwipe:!0,useAnimation:!0};this.canSlide=!0,this.canNext=!0,this.canPrev=!0,this.isScroll=!1,this.opt=o(i,t),this.page=this.opt.page,this.container=a(this.opt.slideContainer)?this.opt.slideContainer:e.querySelector(this.opt.slideContainer),this.items=a(this.opt.slidePages)?this.opt.slidePages:e.querySelectorAll(this.opt.slidePages),this.count=this.items.length,this.direction="",this.eventHandler={};for(var n in l)this.eventHandler[n]=l[n].bind(this);c.initEvent.call(this),c.slideScroll.call(this,this.page-1),c.initAnimation.call(this,this.items,this.page-1),this.slideTo(this.page)};return d.prototype.slideNext=function(t){if(this.count<=this.page)return!1;this.direction="next",c.slideScroll.call(this,this.page),this.items[this.page-1].style.transform="translate3d(0, -100%, 0)",this.items[this.page].style.transform="translate3d(0, 0, 0)",this.page++,this.opt.before(this.page-1,this.direction,this.page),t||(this.canSlide=!1,c.runAnimation.call(this,this.page-1))},d.prototype.slidePrev=function(t){if(1>=this.page)return!1;this.direction="prev",c.slideScroll.call(this,this.page-2),this.items[this.page-2].style.transform="translate3d(0, 0, 0)",this.items[this.page-1].style.transform="translate3d(0, 100%, 0)",this.page--,this.opt.before(this.page+1,this.direction,this.page),t||(this.canSlide=!1,c.runAnimation.call(this,this.page-1))},d.prototype.slideTo=function(t){if(t>=1&&t<=this.count){if(t==this.page)return!1;if(t>this.page){for(var e=this.page+1;e<t;e++)this.slideNext("optimize");this.slideNext()}else if(t<this.page){for(e=this.page-1;e>t;e--)this.slidePrev("optimize");this.slidePrev()}}},d.prototype.slideFire=function(t){var e=t?t-1:this.page-1;c.runAnimation.call(this,e,".lazy")},d.prototype.destroy=function(){if(this.opt.useAnimation){this.items.length;var t=this.container.querySelectorAll(".step"),i=this.container.querySelectorAll(".lazy");t.length>0&&t.forEach(function(t){t.style.display=""}),i.length>0&&i.forEach(function(t){t.style.display=""}),c.runAnimation.call(this,0)}if(this.opt.useWheel&&(e.removeEventListener("DOMMouseScroll",this.eventHandler.wheelFunc),e.removeEventListener("mousewheel",this.eventHandler.wheelFunc),this.items[this.page-1].style.transform="translate3d(0, 0, 0)"),this.opt.useSwipe){this.container.removeEventListener("touchstart",this.eventHandler.touchStart),this.container.removeEventListener("touchmove",this.eventHandler.touchMove),this.container.removeEventListener("touchend",this.eventHandler.touchEnd)}this.container.removeEventListener("transitionend",this.eventHandler.transitionEnd)},d.prototype.update=function(t){this.canSlide=!0,this.canNext=!0,this.canPrev=!0;for(var i=a(t)?t:e.querySelectorAll(this.opt.slidePages),n=0,s=i.length;n<s;n++){if(this.items[this.page-1]&&r(this.items[this.page-1],i[n])){this.page=n+1;break}n===s-1&&(this.page=1)}this.items=i,this.count=this.items.length,this.slideTo(this.page),c.initAnimation.call(this,this.items,this.page-1)},d});
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;"use strict";var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};"classList"in document.documentElement||Object.defineProperty(HTMLElement.prototype,"classList",{get:function(){var t=this;function e(e){return function(i){var n=t.className.split(/\s+/g),s=n.indexOf(i);e(n,s,i),t.className=n.join(" ")}}return{add:e(function(t,e,i){~e||t.push(i)}),remove:e(function(t,e){~e&&t.splice(e,1)}),toggle:e(function(t,e,i){~e?t.splice(e,1):t.push(i)}),contains:function(e){return!!~t.className.split(/\s+/g).indexOf(e)},item:function(e){return t.className.split(/\s+/g)[e]||null}}}}),function(t,e){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function(){return e(t,t.document)}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"===("undefined"==typeof exports?"undefined":_typeof(exports))?module.exports=e(t,t.document):t.slidePage=e(t,t.document)}("undefined"!=typeof window?window:void 0,function(t,e){var i=!1;try{var n=Object.defineProperty({},"passive",{get:function(){i=!0}});t.addEventListener("test",null,n)}catch(t){}var s=function(e){var i=new RegExp("(^|&)"+e+"=([^&]*)(&|$)"),n=t.location.search.substr(1).match(i);return null!=n?unescape(n[2]):null},r=function(t,e){for(var i in e)t[i]=e[i];return t},o=function(t,e){var i=t.nodeName===e.nodeName,n=t.nodeType===e.nodeType,s=t.innerHTML===e.innerHTML;return t.className.replace(/ transition/g,"")===e.className.replace(/ transition/g,"")&&i&&n&&s},a=function(t){if(t instanceof NodeList||t instanceof HTMLCollection&&t.length>0){for(var e=0,i=0,n=t.length;i<n;i++)t[i]instanceof Element&&e++;return e===n}return t instanceof Element},l={},h=(new Date).getTime(),c={wheelFunc:function(e){e=e||t.event;if(!this.isScroll){var i=(new Date).getTime(),n=i-h;h=i,n<=50||(e.wheelDeltaY<0||e.wheelDelta<0||e.detail>0?this.canSlide&&this.canNext&&this.slideNext():(e.wheelDeltaY>0||e.wheelDelta>0||e.detail<0)&&this.canSlide&&this.canPrev&&this.slidePrev())}},touchStart:function(t){l.startpoint=t.targetTouches[0].clientY},touchMove:function(t){var e=t.targetTouches[0].clientY-l.startpoint;!this.canPrev&&e>5&&(this.isScroll=!0),!this.canNext&&e<-5&&(this.isScroll=!0),!this.isScroll&&t.preventDefault(),l.endpoint=t.targetTouches[0].clientY},touchEnd:function(t){if(0===l.endpoint)return!1;l.endpoint-l.startpoint<-60?this.canSlide&&this.canNext&&this.slideNext():l.endpoint-l.startpoint>60&&this.canSlide&&this.canPrev&&this.slidePrev(),l.startpoint=0,l.endpoint=0},transitionEnd:function(t){t.target.isEqualNode(this.items[this.page-1])&&("next"==this.direction?(this.opt.after(this.page-1,this.direction,this.page),this.opt.refresh&&d.resetAnimation.call(this,this.page-2)):"prev"==this.direction&&(this.opt.after(this.page+1,this.direction,this.page),this.opt.refresh&&d.resetAnimation.call(this,this.page)),this.canSlide=!0)}},d={slideScroll:function(e){var i=this.items[e].children[0].offsetHeight,n=t.innerHeight,s=function(e){var n=t.innerHeight,s=i<=this.items[e].scrollTop+n,r=0==this.items[e].scrollTop;this.canPrev=r&&!s,this.canNext=s&&!r,this.isScroll=!(s||r)}.bind(this);i-n>20?(this.items[e].children[0].children[0].focus(),s(e),"next"==this.direction?this.items[e].scrollTop=0:"prev"==this.direction&&(this.items[e].scrollTop=i-n),this.items[e].addEventListener("scroll",function(t){s(e)})):(this.canPrev=!0,this.canNext=!0,this.isScroll=!1)},resetAnimation:function(e){if(this.opt.useAnimation&&this.opt.refresh){if(!this.items[e])return!1;var i=this.items[e].querySelectorAll(".step"),n=this.items[e].querySelectorAll(".lazy");if(i.length>0){var s=!0,r=!1,o=void 0;try{for(var a,l=Array.from(i)[Symbol.iterator]();!(s=(a=l.next()).done);s=!0){(p=a.value).style.visibility="hidden",p.style.animationName="__"+t.getComputedStyle(p).animationName}}catch(t){r=!0,o=t}finally{try{!s&&l.return&&l.return()}finally{if(r)throw o}}}if(n.length>0){var h=!0,c=!1,d=void 0;try{for(var u,f=Array.from(n)[Symbol.iterator]();!(h=(u=f.next()).done);h=!0){var p;(p=u.value).style.visibility="hidden",p.style.animationName="__"+t.getComputedStyle(p).animationName}}catch(t){c=!0,d=t}finally{try{!h&&f.return&&f.return()}finally{if(c)throw d}}}}},runAnimation:function(t,e){if(this.opt.useAnimation){var i=function(t){var e=t.getAttribute("data-delay")||100,i=setTimeout(function(){t.style.visibility="",t.style.animationName="",clearTimeout(i)},e)},n=this.items[t].querySelectorAll(e||".step"),s=!0,r=!1,o=void 0;try{for(var a,l=Array.from(n)[Symbol.iterator]();!(s=(a=l.next()).done);s=!0){i(a.value)}}catch(t){r=!0,o=t}finally{try{!s&&l.return&&l.return()}finally{if(r)throw o}}}},initAnimation:function(e,i){if(this.opt.useAnimation){var n=this.container.querySelectorAll(".step"),s=this.container.querySelectorAll(".lazy");if(n.length>0){var r=!0,o=!1,a=void 0;try{for(var l,h=Array.from(n)[Symbol.iterator]();!(r=(l=h.next()).done);r=!0){(v=l.value).style.visibility="hidden",v.style.animationName="__"+t.getComputedStyle(v).animationName}}catch(t){o=!0,a=t}finally{try{!r&&h.return&&h.return()}finally{if(o)throw a}}}if(s.length>0){var c=!0,u=!1,f=void 0;try{for(var p,m=Array.from(s)[Symbol.iterator]();!(c=(p=m.next()).done);c=!0){var v;(v=p.value).style.visibility="hidden",v.style.animationName="__"+t.getComputedStyle(v).animationName}}catch(t){u=!0,f=t}finally{try{!c&&m.return&&m.return()}finally{if(u)throw f}}}d.runAnimation.call(this,i)}for(var y,g=0;y=this.items[g];g++)g===i?y.style.transform="translate3d(0, 0, 0)":g<i?y.style.transform="translate3d(0, -100%, 0)":g>i&&(y.style.transform="translate3d(0, 100%, 0)"),function(t){var e=setTimeout(function(){t.classList&&t.classList.add instanceof Function&&t.classList.add("transition"),clearTimeout(e)})}(y)},initEvent:function(){this.opt.useWheel&&(e.addEventListener("DOMMouseScroll",this.eventHandler.wheelFunc,!!i&&{passive:!0}),e.addEventListener("mousewheel",this.eventHandler.wheelFunc,!!i&&{passive:!0})),this.opt.useSwipe&&(l={startpoint:0,endpoint:0},this.container.addEventListener("touchstart",this.eventHandler.touchStart,!!i&&{passive:!0}),this.container.addEventListener("touchmove",this.eventHandler.touchMove),this.container.addEventListener("touchend",this.eventHandler.touchEnd,!!i&&{passive:!0})),this.container.addEventListener("transitionend",this.eventHandler.transitionEnd)}},u=function(t){var i={page:1*s("page")||1,slidePages:".slide-page",slideContainer:".slide-container",after:function(){},before:function(){},refresh:!1,useWheel:!0,useSwipe:!0,useAnimation:!0};this.canSlide=!0,this.canNext=!0,this.canPrev=!0,this.isScroll=!1,this.opt=r(i,t),this.page=this.opt.page,this.container=a(this.opt.slideContainer)?this.opt.slideContainer:e.querySelector(this.opt.slideContainer),this.items=a(this.opt.slidePages)?this.opt.slidePages:e.querySelectorAll(this.opt.slidePages),this.count=this.items.length,this.direction="",this.eventHandler={};for(var n in c)this.eventHandler[n]=c[n].bind(this);d.initEvent.call(this),d.slideScroll.call(this,this.page-1),d.initAnimation.call(this,this.items,this.page-1),this.slideTo(this.page)};return u.prototype.slideNext=function(t){if(this.count<=this.page)return!1;this.direction="next",d.slideScroll.call(this,this.page),this.items[this.page-1].style.transform="translate3d(0, -100%, 0)",this.items[this.page].style.transform="translate3d(0, 0, 0)",this.page++,this.opt.before(this.page-1,this.direction,this.page),t||(this.canSlide=!1,d.runAnimation.call(this,this.page-1))},u.prototype.slidePrev=function(t){if(1>=this.page)return!1;this.direction="prev",d.slideScroll.call(this,this.page-2),this.items[this.page-2].style.transform="translate3d(0, 0, 0)",this.items[this.page-1].style.transform="translate3d(0, 100%, 0)",this.page--,this.opt.before(this.page+1,this.direction,this.page),t||(this.canSlide=!1,d.runAnimation.call(this,this.page-1))},u.prototype.slideTo=function(t){if(t>=1&&t<=this.count){if(t==this.page)return!1;if(t>this.page){for(var e=this.page+1;e<t;e++)this.slideNext("optimize");this.slideNext()}else if(t<this.page){for(e=this.page-1;e>t;e--)this.slidePrev("optimize");this.slidePrev()}}},u.prototype.slideFire=function(t){var e=t?t-1:this.page-1;d.runAnimation.call(this,e,".lazy")},u.prototype.destroy=function(){if(this.opt.useAnimation){this.items.length;var t=this.container.querySelectorAll(".step"),i=this.container.querySelectorAll(".lazy");if(t.length>0){var n=!0,s=!1,r=void 0;try{for(var o,a=t[Symbol.iterator]();!(n=(o=a.next()).done);n=!0){o.value.style.visibility=""}}catch(t){s=!0,r=t}finally{try{!n&&a.return&&a.return()}finally{if(s)throw r}}}if(i.length>0){var l=!0,h=!1,c=void 0;try{for(var u,f=i[Symbol.iterator]();!(l=(u=f.next()).done);l=!0){u.value.style.visibility=""}}catch(t){h=!0,c=t}finally{try{!l&&f.return&&f.return()}finally{if(h)throw c}}}d.runAnimation.call(this,0)}if(this.opt.useWheel&&(e.removeEventListener("DOMMouseScroll",this.eventHandler.wheelFunc),e.removeEventListener("mousewheel",this.eventHandler.wheelFunc),this.items[this.page-1].style.transform="translate3d(0, 0, 0)"),this.opt.useSwipe){this.container.removeEventListener("touchstart",this.eventHandler.touchStart),this.container.removeEventListener("touchmove",this.eventHandler.touchMove),this.container.removeEventListener("touchend",this.eventHandler.touchEnd)}this.container.removeEventListener("transitionend",this.eventHandler.transitionEnd)},u.prototype.update=function(t){this.canSlide=!0,this.canNext=!0,this.canPrev=!0;for(var i=a(t)?t:e.querySelectorAll(this.opt.slidePages),n=0,s=i.length;n<s;n++){if(this.items[this.page-1]&&o(this.items[this.page-1],i[n])){this.page=n+1;break}n===s-1&&(this.page=1)}this.items=i,this.count=this.items.length,this.slideTo(this.page),d.initAnimation.call(this,this.items,this.page-1)},u});
 
 /***/ }),
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.SlidePage = exports.SlideContainer = undefined;
-
-	var _SlideContainer = __webpack_require__(45);
-
-	var _SlideContainer2 = _interopRequireDefault(_SlideContainer);
-
-	var _SlidePage = __webpack_require__(46);
-
-	var _SlidePage2 = _interopRequireDefault(_SlidePage);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	exports.SlideContainer = _SlideContainer2.default;
-	exports.SlidePage = _SlidePage2.default;
-
-/***/ }),
-/* 45 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19790,164 +19988,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _index = __webpack_require__(47);
-
-	var _index2 = _interopRequireDefault(_index);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-	  if (!(instance instanceof Constructor)) {
-	    throw new TypeError("Cannot call a class as a function");
-	  }
-	}
-
-	function _possibleConstructorReturn(self, call) {
-	  if (!self) {
-	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var slidePage = __webpack_require__(40);
-
-	var SlideContainer = function (_Component) {
-	  _inherits(SlideContainer, _Component);
-
-	  function SlideContainer(props) {
-	    _classCallCheck(this, SlideContainer);
-
-	    var _this = _possibleConstructorReturn(this, (SlideContainer.__proto__ || Object.getPrototypeOf(SlideContainer)).call(this, props));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(SlideContainer, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-
-	      this.slidePage = new slidePage({
-	        slideContainer: this.refs.slideContainer,
-	        slidePages: this.refs.slideContainer.children,
-	        page: this.props.page,
-	        refresh: this.props.refresh,
-	        useWheel: this.props.useWheel,
-	        useSwipe: this.props.useSwipe,
-	        useAnimation: this.props.useAnimation,
-	        before: function before(origin, direction, target) {
-	          _this2.props.before(origin, direction, target);
-	        },
-	        after: function after(origin, direction, target) {
-	          _this2.props.after(origin, direction, target);
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'update',
-	    value: function update() {
-	      this.slidePage.update(this.refs.slideContainer.children);
-	    }
-	  }, {
-	    key: 'destroy',
-	    value: function destroy() {
-	      this.slidePage.destroy();
-	    }
-	  }, {
-	    key: 'slideFire',
-	    value: function slideFire(page) {
-	      this.slidePage.slideFire(page);
-	    }
-	  }, {
-	    key: 'slideTo',
-	    value: function slideTo(page) {
-	      this.slidePage.slideTo(page);
-	    }
-	  }, {
-	    key: 'slideNext',
-	    value: function slideNext() {
-	      this.slidePage.slideNext();
-	    }
-	  }, {
-	    key: 'slidePrev',
-	    value: function slidePrev() {
-	      this.slidePage.slidePrev();
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement('div', { className: (0, _classnames2.default)(_index2.default['slide-container']), ref: 'slideContainer' }, this.props.children);
-	    }
-	  }]);
-
-	  return SlideContainer;
-	}(_react.Component);
-
-	SlideContainer.propTypes = {
-	  refresh: _propTypes2.default.bool,
-	  useWheel: _propTypes2.default.bool,
-	  useSwipe: _propTypes2.default.bool,
-	  useAnimation: _propTypes2.default.bool,
-	  before: _propTypes2.default.func,
-	  after: _propTypes2.default.func,
-	  page: _propTypes2.default.number
-	};
-
-	SlideContainer.defaultProps = {
-	  refresh: true,
-	  useWheel: true,
-	  useSwipe: true,
-	  useAnimation: true,
-	  page: 1,
-	  before: function before() {},
-	  after: function after() {}
-	};
-
-	exports.default = SlideContainer;
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () {
-	  function defineProperties(target, props) {
-	    for (var i = 0; i < props.length; i++) {
-	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-	    }
-	  }return function (Constructor, protoProps, staticProps) {
-	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	  };
-	}();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(35);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _classnames = __webpack_require__(32);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _index = __webpack_require__(47);
+	var _index = __webpack_require__(38);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -20003,54 +20044,6 @@
 	SlidePage.defaultProps = {};
 
 	exports.default = SlidePage;
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(48);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// Prepare cssTransformation
-	var transform;
-
-	var options = {"hmr":true}
-	options.transform = transform
-	// add the styles to the DOM
-	var update = __webpack_require__(30)(content, options);
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!../node_modules/css-loader/index.js?modules&localIdentName=[name]__[local]___[hash:base64:5]!./index.css", function() {
-				var newContent = require("!!../node_modules/css-loader/index.js?modules&localIdentName=[name]__[local]___[hash:base64:5]!./index.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(29)(undefined);
-	// imports
-
-
-	// module
-	exports.push([module.id, ".index__slide-container___bVYv1 {\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  position: relative;\n}\n\n.index__slide-page___18GSh {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: hidden;\n  -webkit-overflow-scrolling: touch;\n  -webkit-tap-highlight-color:rgba(255,255,255,0);\n  -webkit-text-size-adjust: none;\n  -webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;\n  background-position: center;\n  transform: translate3d(0,100%,0);\n  -webkit-transform: translate3d(0,100%,0);\n}\n\n.transition {\n  transition: all 500ms cubic-bezier(0.550, 0.085, 0.000, 0.990);\n  -webkit-transition: all 500ms cubic-bezier(0.550, 0.085, 0.000, 0.990);\n}", ""]);
-
-	// exports
-	exports.locals = {
-		"slide-container": "index__slide-container___bVYv1",
-		"slide-page": "index__slide-page___18GSh"
-	};
 
 /***/ })
 /******/ ]);
