@@ -1,6 +1,6 @@
 {
   "name": "react-slidepage",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "react-slidePage is a fullscreen scrolling component based on [slidePage](https://github.com/lipten/slidePage)",
   "keywords": [
     "react",
