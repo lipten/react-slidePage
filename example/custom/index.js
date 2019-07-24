@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './index.css'
 import cx from 'classnames'
-import {SlideContainer, SlidePage} from 'lib';
+require('../../lib/index.css');
+import {SlideContainer, SlidePage} from '../../lib';
 
 class App extends React.Component {
   constructor(props) {

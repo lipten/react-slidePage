@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import style from './index.css';
 class SlidePage extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +12,7 @@ class SlidePage extends Component {
   }
   render() {
     return (
-      <div className={cx(style['slide-page'], this.props.className)}>
+      <div className={cx('slide-page', this.props.className)}>
         <div>
           {this.props.children}
         </div>

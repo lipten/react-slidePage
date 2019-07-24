@@ -29,7 +29,20 @@ module.exports = {
         loaders: [
           'style-loader',
           'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]',
+        ],
+        include: [
+          path.join(__dirname, './example'),
         ]
+      },
+      {
+        test: /\.(css)$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+        ],
+        include: [
+          path.join(__dirname, './lib'),
+        ],
       },
     ],
   },

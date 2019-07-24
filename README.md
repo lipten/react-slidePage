@@ -20,7 +20,8 @@ $ npm i -S react-slidepage
 Work on a React instance:
 
 ```JSX
-import { SlideContainer, SlidePage } from 'react-slidePage'
+require('react-slidepage/lib/index.css');
+import { SlideContainer, SlidePage } from 'react-slidepage';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class App extends React.Component {
               </SlidePage>
             )
           })
+        }
       </SlideContainer>
     )
   }
